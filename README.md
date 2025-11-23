@@ -39,12 +39,12 @@ The main controller class.Window Configuration:overrideredirect(True): Removes t
 
 ## 4. Logic Flow: Color Alerts
 The visual feedback logic is executed on the Main Thread every time update_display() is called.
-- Input: Current elapsed_time.
-- Condition 1: Is elapsed_time $\ge$ designated_time?
--   Yes: Set Text Color to Red. 
-- Condition 2: Is elapsed_time $\ge$ warning_time?
--   Yes: Set Text Color to Orange.
-- 4: Default: Set Text Color to White.
+  1. Input: Current elapsed_time.
+  2. Condition 1: Is elapsed_time $\ge$ designated_time?
+  - Yes: Set Text Color to Red.
+  3. Condition 2: Is elapsed_time $\ge$ warning_time?
+  - Yes: Set Text Color to Orange.
+  4. Default: Set Text Color to White.
 ## 5. Logic Flow: Custom Dragging
 Because the standard title bar is removed (overrideredirect), the native OS "drag to move" functionality is lost. The code reimplements this:
 - Event <Button-1> (Click): The application records the exact (x, y) coordinates of the mouse pointer relative to the widget.
