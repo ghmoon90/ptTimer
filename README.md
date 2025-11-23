@@ -56,7 +56,9 @@ The visual feedback logic is executed on the Main Thread every time update_displ
   3. Condition 2: Is elapsed_time $\ge$ warning_time?
   - Yes: Set Text Color to Orange.
   4. Default: Set Text Color to White.
-## 5. Logic Flow: Custom Dragging
+
+    
+## 6. Logic Flow: Custom Dragging
 Because the standard title bar is removed (overrideredirect), the native OS "drag to move" functionality is lost. The code reimplements this:
 - Event <Button-1> (Click): The application records the exact (x, y) coordinates of the mouse pointer relative to the widget.
 - Event <B1-Motion> (Drag): As the mouse moves, the code calculates the delta (difference) between the new mouse position and the start position, instantly updating the window's geometry to match.
