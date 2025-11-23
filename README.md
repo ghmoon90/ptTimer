@@ -29,8 +29,9 @@ This class encapsulates the "engine" of the timer.
 
 ### B. SettingsDialog (extends simpledialog.Dialog)
 This class manages user configuration.
-- Centering Logic (center_dialog_on_screen):Standard tkinter dialogs often appear in random locations. This method calculates the precise center of the monitor:$$x = (Screen Width / 2) - (Window Width / 2)$$$$y = (Screen Height / 2) - (Window Height / 2)
-- $$buttonbox() Override: This is a critical implementation detail. The centering logic is triggered via after_idle inside buttonbox. This ensures the calculation happens after the dialog size is determined but before the user interacts with it.
+- Centering Logic (center_dialog_on_screen):Standard tkinter dialogs often appear in random locations. This method calculates the precise center of the monitor:
+  $$x = (Screen Width / 2) - (Window Width / 2)$$$$y = (Screen Height / 2) - (Window Height / 2)$$
+- buttonbox() Override: This is a critical implementation detail. The centering logic is triggered via after_idle inside buttonbox. This ensures the calculation happens after the dialog size is determined but before the user interacts with it.
 
 ### C. TimerWidget (extends tk.Tk)
 The main controller class.Window Configuration:overrideredirect(True): Removes the OS window frame.wm_attributes('-topmost', 1): Forces the window to stay above PowerPoint/Keynote.wm_attributes('-alpha', 0.6): Sets opacity.
