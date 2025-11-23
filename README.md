@@ -22,7 +22,14 @@ This class encapsulates the "engine" of the timer.daemon = True: Ensures the thr
 ### B. SettingsDialog (extends simpledialog.Dialog)This class manages user configuration.Centering Logic (center_dialog_on_screen):Standard tkinter dialogs often appear in random locations. This method calculates the precise center of the monitor:$$x = (Screen Width / 2) - (Window Width / 2)$$$$y = (Screen Height / 2) - (Window Height / 2)$$buttonbox() Override: This is a critical implementation detail. The centering logic is triggered via after_idle inside buttonbox. This ensures the calculation happens after the dialog size is determined but before the user interacts with it.
 ### C. TimerWidget (extends tk.Tk)The main controller class.Window Configuration:overrideredirect(True): Removes the OS window frame.wm_attributes('-topmost', 1): Forces the window to stay above PowerPoint/Keynote.wm_attributes('-alpha', 0.6): Sets opacity.
 ## 4. Logic Flow: Color Alerts
-The visual feedback logic is executed on the Main Thread every time update_display() is called.Input: Current elapsed_time.Condition 
-### 1: Is elapsed_time $\ge$ designated_time?Yes: Set Text Color to Red.Condition 
-### 2: Is elapsed_time $\ge$ warning_time?Yes: Set Text Color to Orange.Default: Set Text Color to White.
-## 5. Logic Flow: Custom DraggingBecause the standard title bar is removed (overrideredirect), the native OS "drag to move" functionality is lost. The code reimplements this:Event <Button-1> (Click): The application records the exact (x, y) coordinates of the mouse pointer relative to the widget.Event <B1-Motion> (Drag): As the mouse moves, the code calculates the delta (difference) between the new mouse position and the start position, instantly updating the window's geometry to match.
+The visual feedback logic is executed on the Main Thread every time update_display() is called.
+- Input: Current elapsed_time.
+- Condition 1: Is elapsed_time $\ge$ designated_time?
+-   Yes: Set Text Color to Red. 
+- Condition 2: Is elapsed_time $\ge$ warning_time?
+-   Yes: Set Text Color to Orange.
+- 4: Default: Set Text Color to White.
+## 5. Logic Flow: Custom Dragging
+Because the standard title bar is removed (overrideredirect), the native OS "drag to move" functionality is lost. The code reimplements this:
+- Event <Button-1> (Click): The application records the exact (x, y) coordinates of the mouse pointer relative to the widget.
+- Event <B1-Motion> (Drag): As the mouse moves, the code calculates the delta (difference) between the new mouse position and the start position, instantly updating the window's geometry to match.
