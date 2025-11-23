@@ -34,7 +34,11 @@ This class manages user configuration.
 - buttonbox() Override: This is a critical implementation detail. The centering logic is triggered via after_idle inside buttonbox. This ensures the calculation happens after the dialog size is determined but before the user interacts with it.
 
 ### C. TimerWidget (extends tk.Tk)
-The main controller class.Window Configuration:overrideredirect(True): Removes the OS window frame.wm_attributes('-topmost', 1): Forces the window to stay above PowerPoint/Keynote.wm_attributes('-alpha', 0.6): Sets opacity.
+The main controller class.
+- Window Configuration:
+    - overrideredirect(True): Removes the OS window frame.
+    - wm_attributes('-topmost', 1): Forces the window to stay above PowerPoint/Keynote.
+    - wm_attributes('-alpha', 0.6): Sets opacity.
 
 
 ## 4. Logic Flow: Color Alerts
