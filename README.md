@@ -11,7 +11,10 @@ Core Capabilities:
 
 It is designed by Gemini 3.0. 
 
-## 2. Architecture & ConcurrencyThe 
+## 2. platform
+- windows 
+
+## 3. Architecture & ConcurrencyThe 
 application employs an Event-Driven Architecture combined with a Worker Thread pattern.
 ###The Concurrency Model
 Standard GUI frameworks like tkinter are not thread-safe. This means you cannot modify UI elements (like changing a label's text) directly from a background thread. The application solves this using a request queue mechanism:
@@ -20,7 +23,7 @@ Standard GUI frameworks like tkinter are not thread-safe. This means you cannot 
 - Bridge (after() method): Instead of updating the label directly, the TimerThread calls self.app.after(1, self.app.update_display). This places a "request" in the Main Thread's event queue to run update_display as soon as it is idle.
 
 
-## 3. Class Breakdown
+## 4. Class Breakdown
 ### A.TimerThread (extends threading.Thread)
 This class encapsulates the "engine" of the timer.
 - daemon = True: Ensures the thread terminates immediately when the main application window closes, preventing "zombie" processes.
@@ -41,7 +44,7 @@ The main controller class.
     - wm_attributes('-alpha', 0.6): Sets opacity.
 
 
-## 4. Logic Flow: Color Alerts
+## 5. Logic Flow: Color Alerts
 The visual feedback logic is executed on the Main Thread every time update_display() is called.
   1. Input: Current elapsed_time.
   2. Condition 1: Is elapsed_time $\ge$ designated_time?
