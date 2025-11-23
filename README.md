@@ -1,13 +1,15 @@
 # ptTimer
 presentation timer widget
 # Presentation Timer Widget - Technical Documentation
-## 1. OverviewThe 
-Presentation Timer is a desktop widget application developed in Python using tkinter. It is designed to provide presenters with a non-intrusive, always-on-top visual reference for their time usage.
+## 1. Overview
+The ptTimer is a desktop widget application developed in Python using tkinter. It is designed to provide presenters with a non-intrusive, always-on-top visual reference for their time usage.
 Core Capabilities:
 - Frameless UI: A minimalist window without a title bar or borders.
 - Transparency: 40% transparency to blend into the desktop environment.
 - Threaded Timing: accurate timekeeping that does not freeze the interface.
 - State Awareness: Visual color changes (White/Orange/Red) to signal time thresholds.
+
+It is designed by Gemini 3.0. 
 
 ## 2. Architecture & ConcurrencyThe 
 application employs an Event-Driven Architecture combined with a Worker Thread pattern.
